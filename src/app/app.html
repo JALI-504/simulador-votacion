@@ -1,5 +1,5 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * * * * * * * * * * * The content below * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
 <!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
@@ -7,7 +7,7 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<style>
+<!--<style>
   :host {
     --bright-blue: oklch(51.01% 0.274 263.83);
     --electric-violet: oklch(53.18% 0.28 296.97);
@@ -332,7 +332,7 @@
   </div>
 </main>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
@@ -341,4 +341,77 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 
-<router-outlet />
+<!-- <router-outlet /> -->
+
+<div class="contenedor">
+  <header class="encabezado">
+    <h1>{{ titulo }}</h1>
+    <p>Aplicación desarrollada en Angular 17</p>
+  </header>
+
+  <section class="panel-votacion">
+    <div class="tarjeta">
+      <h2>Candidato 1</h2>
+      <p class="contador">{{ candidato1 }}</p>
+      <button (click)="votar(1)">Votar</button>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Candidato 2</h2>
+      <p class="contador">{{ candidato2 }}</p>
+      <button (click)="votar(2)">Votar</button>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Candidato 3</h2>
+      <p class="contador">{{ candidato3 }}</p>
+      <button (click)="votar(3)">Votar</button>
+    </div>
+
+    <div class="tarjeta nulo">
+      <h2>Voto nulo</h2>
+      <p class="contador">{{ nulos }}</p>
+      <button (click)="votar(0)">Registrar nulo</button>
+    </div>
+  </section>
+
+  <section class="resultados">
+    <h2>Resultados</h2>
+
+    <div class="fila">
+      <span>Candidato 1</span>
+      <strong>{{ candidato1 }} votos ({{ porcentaje(candidato1) }}%)</strong>
+    </div>
+
+    <div class="fila">
+      <span>Candidato 2</span>
+      <strong>{{ candidato2 }} votos ({{ porcentaje(candidato2) }}%)</strong>
+    </div>
+
+    <div class="fila">
+      <span>Candidato 3</span>
+      <strong>{{ candidato3 }} votos ({{ porcentaje(candidato3) }}%)</strong>
+    </div>
+
+    <div class="fila">
+      <span>Votos nulos</span>
+      <strong>{{ nulos }} votos ({{ porcentaje(nulos) }}%)</strong>
+    </div>
+
+    <div class="fila total">
+      <span>Total general</span>
+      <strong>{{ totalVotos }}</strong>
+    </div>
+  </section>
+
+  <section class="resultado-final">
+    <h2>Resultado final</h2>
+    <p>{{ obtenerResultado() }}</p>
+  </section>
+
+  <div class="acciones">
+    <button class="reiniciar" (click)="reiniciarVotacion()">
+      Reiniciar votación
+    </button>
+  </div>
+</div>
